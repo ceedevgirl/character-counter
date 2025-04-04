@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/style.css">
+  
+  <title>Frontend Mentor | Character counter</title>
+</head>
+
+  <body>
+      <div class="container">
+          <header>
+            <div class="logo">
+<img src="./assets/images/logo-dark-theme.svg" alt="logo">
+            </div>
+           <div class="toggle-theme"> <img src="./assets/images/icon-sun.svg" alt="toggle theme icon">  </div>
+          </header>
+          <h1>Analyze your text <br> in real-time.</h1>
+          <textarea id="text-input" placeholder="Start typing here… (or paste your text)..."></textarea>
+  <div class="controls">
+
+    <div class="options">
+      <label for="exclude-spaces"><input type="checkbox" id="exclude-spaces" name="exclude-spaces"> Exclude Spaces</label>
+      <label for="set-limit"><input type="checkbox" id="set-limit" name="set-limit"> Set Character Limit</label> 
+  </div>
+  <p>Approx. reading time: <span id="reading-time">0</span> minutes</p>
+  </div>
+
+  <!-- Stats -->
+          <div class="stats">
+              <div class="stat-box purple">
+                  <div>
+                    <h2 id="char-count">00</h2>
+                    <p>Total Characters</p>
+                  </div>
+                  <img src="./assets/images/pattern-character-count.svg" alt="">
+              </div>
+
+              <div class="stat-box yellow">
+                 <div> 
+                  <h2 id="word-count">00</h2>
+                  <p>Word Count</p>
+                </div>
+                <img src="./assets/images/pattern-word-count.svg" alt="">
+              </div>
+
+              <div class="stat-box orange">
+                  <div>
+                    <h2 id="sentence-count">00</h2>
+                    <p>Sentence Count</p>
+                  </div>
+                  <img src="./assets/images/pattern-sentence-count.svg" alt="">
+              </div>
+          </div>
+  
+          <!-- Letter density -->
+         <div class="density">
+          <h3>Letter Density</h3>
+          <div class="progress">
+<div class="letters">
+  <p> E </p>
+   <div class="progress-container">
+   <div class="progress-bar">
+   <div class="progress-width one" ></div>
+   </div>
+   </div>
+
+  <div class="percentage">
+    <p>40<span> (16.06%)</span></p>
+  </div>
+
+</div>
+<div class="letters">
+  <p> I </p>
+ <div class="progress-container">
+ <div class="progress-bar">
+ <div class="progress-width two"></div>
+ </div>
+  </div>
+  
+  <div class="percentage">
+    <p>29<span> (11.65%)</span></p>
+    
+  </div>
+</div>
+<div class="letters">
+  <p> T </p>
+ <div class="progress-container">
+   <div class="progress-bar">
+    <div class="progress-width three"></div>
+ </div>
+  </div>
+  <div class="percentage">
+    <p>28<span> (11.24%)</span></p>
+    
+  </div>
+</div>
+<div class="letters">
+  <p> O </p>
+ <div class="progress-container">
+   <div class="progress-bar">
+    <div class="progress-width four"></div>
+ </div>
+  </div>
+  <div class="percentage">
+    <p>22<span> (8.84%)</span></p>
+    
+  </div>
+</div>
+<div class="letters">
+  <p> N </p>
+ <div class="progress-container">
+   <div class="progress-bar">
+    <div class="progress-width five"></div>
+ </div>
+  </div>
+  <div class="percentage">
+    <p>21<span> (8.43%)</span></p>
+  </div>
+</div>
+          </div>
+<div class="see-more">
+  <p> See more <span class="rotate-left">&lt;</span> </p>
+</div>
+         </div>
+        </main>
+      </div> 
+  </body>
+  </html>
+ 
+</body>
+</html>
