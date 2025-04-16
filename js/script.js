@@ -134,3 +134,4 @@ document.querySelector(".toggle-theme").addEventListener("click", () => {
 });
 
 updateStats();
+
