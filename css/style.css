@@ -199,3 +199,206 @@
     background-color: #FE8159;
     color: #12131A;
   }
+
+  
+  /* Letter Density Section */
+  .density h3 {
+    margin: 16px;
+    text-align: left;
+  }
+  
+  .letters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .letters p {
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  .progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #2A2B37;
+    border-radius: 999px;
+    position: relative;
+    gap: 14px;
+  }
+  
+  .progress-width {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-radius: 999px;
+    background-color: #D3A0FA;
+  }
+  
+  
+  /* Percentage label */
+  .percentage {
+    min-width: 80px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+
+.see-more {
+  font-size: 20px;
+  color: white; 
+}
+
+
+  .hidden {
+    display: none;
+  } 
+  
+  #toggle-density {
+    background: none;
+    border: none;
+    color: #D3A0FA;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .rotate-left {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+  }
+  
+  .rotate-up {
+    transform: rotate(90deg);
+  }
+  
+/* LIGHT THEME */
+body.light {
+  background-image: url("../assets/images/bg-light-theme.png");
+  color: #2A2B37;
+}
+
+body.light textarea {
+  background-color: #F2F2F7;
+  color: #2A2B37;
+  border: 1px solid #E4E4EF;
+
+}
+
+body.light .toggle-theme {
+  background-color: #F2F2F7;
+}
+
+body.light .progress-bar {
+  background-color: #F2F2F7;
+}
+
+/* Show light theme logo, hide dark theme logo */
+body.light .dark-theme-logo {
+  display: none;
+}
+
+body.light .light-theme-logo {
+  display: block;
+}
+
+/* Show moon icon in light mode, hide sun icon */
+body.light .sun-icon {
+  display: none;
+}
+
+body.light .icon-moon {
+  display: block;
+}
+
+
+body.light #char-limit-value {
+  background-color: #E4E4EF;
+  color: #12131A;
+  border: 1px solid #F2F2F7;
+}
+
+
+/* Default (dark theme) */
+.dark-theme-logo {
+  display: block;
+}
+
+.light-theme-logo {
+  display: none;
+}
+
+.icon-moon {
+  display: none;
+}
+
+
+body.light .see-more {
+  color: black;
+}
+
+  /*  Responsive Design  */
+  @media (min-width: 768px) {
+    .container {
+      max-width: 95%;
+    }
+    
+    h1 {
+        font-size: 36px;
+      }
+    
+      .stats {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+    
+      .controls {
+        flex-direction: row;
+        justify-content: space-between; 
+    }
+
+      .options {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .stat-box {
+        width: 100%;
+      }
+    }
+
+
+    /* Desktop*/
+    @media (min-width: 1240px) { 
+        .controls {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .options {
+          display: flex;
+          flex-direction: row;
+        }
+
+      .stats {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+    }
+
+   
