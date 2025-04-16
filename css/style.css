@@ -1,43 +1,39 @@
-*{
+/*  Global Reset  */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
+  }
+  
+  body {
     background-image: url("../assets/images/bg-dark-theme.png");
     color: #F2F2F7;
     font-family: "DM Sans", sans-serif;
     font-size: 16px;
-}
-
-
-.container {
-    max-width: 80%;
+  }
+  
+ 
+  /*  Container  */
+  .container {
+    width: 60rem;
+    max-width: 100%;
     padding: 20px;
     margin: auto;
-}
-
-/* Header */
-header {
+  }
+  
+  /*  Header  */
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo img {
-    width: 245.53px;
-    height: 40px;
-}
-
-
-.toggle-theme img {
-    width: 22px;
-    height: 22px;
-}
-
-
-.toggle-theme  {
+    flex-wrap: wrap;
+  }
+  
+  .logo img {
+    width: 180px;
+  }
+  
+  .toggle-theme {
     width: 30px;
     height: 30px;
     background-color: #2A2B37;
@@ -45,183 +41,161 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
-}
-
-/* Title */
-h1 {
-    font-size: 64px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .toggle-theme img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /*  Title  */
+  h1 {
+    font-size: 48px;
     font-weight: 900;
     text-align: center;
-    line-height: 100%;
-    margin: 48px 0  ;
-}
-
-
-textarea {
+    line-height: 120%;
+    margin: 32px 0;
+  }
+  
+  /*  Textarea  */
+  textarea {
     background-color: #21222C;
     color: #E4E4EF;
     width: 100%;
-    height: 237px;
-padding: 15px;
-border-radius: 8px;
-font-size: 16px;
-resize: none;
-
-}
-
-textarea:focus {
-    outline-color: #C27CF8;
-    box-shadow: 0 4px 10px #E4E4EF;
-}
-
-textarea:hover {
-    cursor: pointer;
-}
-
-#exclude-spaces:checked, #set-limit  {
-background-color: #C27CF8;
-border-radius: 10px;
-}
-
-.controls {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-top: 12px
-}
-
-.options {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 16px;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-between;
-  gap: 8px;
-  margin-top: 48px;
-}
-
-.stat-box {
-  width: 319.33px;
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px 0;
-    border-radius: 5px;
-}
-
-.purple, p.purple{
-    text-align: center;
-    background-color: #D3A0FA;
+    height: 200px;
+    padding: 15px;
+    border-radius: 8px;
     font-size: 16px;
-    color: #12131A;
-    /* margin: 15px 20px; */
-}
-
-#char-count{
-    color: #12131A;
-    font-size: 64px;
-    font-weight: bold;
-    margin: 15px 15px;
-   text-align: center;
-}
-
-
-.yellow, .yellow p{
-    text-align: center;
-    background-color: #FF9F00;
-    font-size: 16px;
-    color: #12131A;
-}
-
-#word-count{
-    color: #12131A;
-    font-size: 64px;
-    font-weight: bold;
-    margin: auto;
-}
-
-
-.orange, p.orange{
-    text-align: center;
-    background-color: #FE8159;
-    font-size: 16px;
-    color: #12131A;
-}
-
-#sentence-count{
-    color: #12131A;
-    font-size: 64px;
-    font-weight: bold;
-    margin: auto;
-}
-
-.density > h3{
-    margin: 24px;
-}
-.letters {
-    display: flex;
+    resize: none;
     align-items: center;
-    gap: 12px;
-}
-
-.progress-container {
-    flex: 1;
+  }
+  
+  textarea:focus {
+    outline-color: #E4E4EF;
+    box-shadow: 0 4px 10px #C27CF8;
+  }
+  
+  /*  Controls Section  */
+  .controls {
     display: flex;
-}
-
-.progress-bar {
+    flex-direction: column; 
+    gap: 12px; 
+    align-items: left;
     width: 100%;
-    height: 10px;
-    gap: 14px;
-    background-color: #2A2B37;
-    border-radius: 999px;
-    position: relative;
-} 
+    margin-top: 16px;
+}
 
-.progress-width {
-    position: absolute;
-    left: 0;
-    width: 80%;
-    height: 100%;
-    border-radius: 999px;
+#char-limit-value {
+  background-color: #2A2B37; 
+  color: #E4E4EF;
+  border-radius: 5px;
+  width: 60px;
+  height: 20px;
+  border: 1px solid #D3A0FA;
+}
+
+
+/* Hidden by default */
+#limit-input-group {
+  display: none;
+}
+
+/* Shown only when set-limit is checked — controlled via JS */
+#limit-input-group.active {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.warning-text {
+  color: red;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    accent-color: #D3A0FA; 
+    cursor: pointer;
+  }
+
+  /* Stats Section */
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5px;
+    margin-top: 32px;
+  }
+  
+  .stat-box {
+    width: 343px;
+    max-width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 8px 0;
+    overflow: hidden; 
+  }
+  
+  .stat-box div .count {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .stat-box img {
+    width: 80px;  
+    height: 80px;
+    max-width: 100%;  
+    height: auto;     
+    display: block;  
+    transform: rotate(-90deg); 
+  }
+
+
+  .purple {
+    background-image: url("../assets/images/pattern-character-count.svg");
+    background-repeat: no-repeat;
+    background-position: right;
     background-color: #D3A0FA;
-
-}
-
-.progress-width.one {
-    width: 16.06%;
-}
-
-.progress-width.two {
-    width: 11.65%;
-}
-
-.progress-width.three {
-    width: 11.24%;
-}
-
-.progress-width.four {
-    width: 8.84%;
-}
-
-.progress-width.five {
-    width: 8.43%;
-}
-
-.see-more {
-    color: #E4E4EF;
-    margin: 8px;
-}
-
-.rotate-left {
-    display: inline-block;
-    font-size: 15px;
-    transform: rotate(-90deg);
-}
-
+    color: #12131A;
+  }
+  
+  .yellow {
+    background-image: url("../assets/images/pattern-word-count.svg");
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: right;
+    background-color: #FF9F00;
+    color: #12131A;
+  }
+  
+  .orange {
+    background-image: url("..//assets/images/pattern-sentence-count.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #FE8159;
+    color: #12131A;
+  }
