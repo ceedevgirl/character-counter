@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A real-time character counter web app built with HTML, CSS, and JavaScript. This tool analyzes your text and provides useful statistics like total characters, word count, sentence count, and letter frequency.",
   "main": "index.js",
- "scripts": {
+  "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage"
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ceedevgirl/character-counter#readme",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   }
 }

@@ -1,3 +1,13 @@
+// js/script.js
+
+import {
+  getCharCount,
+  getWordCount,
+  getSentenceCount,
+  getLetterFrequencies,
+  estimateReadingTime
+} from "./utils.js";
+
 // DOM Element References
 const textInput = document.getElementById("text-input");
 const excludeSpaces = document.getElementById("exclude-spaces");
@@ -16,49 +26,11 @@ const themeIcon = document.getElementById("theme-icon");
 const logoImg = document.getElementById("logo-img");
 const spaceIndicator = document.getElementById("space-indicator");
 
-
 // UI state variables
 let showAllLetters = false;
 let isLightTheme = false;
 
-/**
- * Returns the number of characters in the text.
- * If `exclude` is true, spaces are not counted.
- */
-function getCharCount(text, exclude) {
-  return exclude ? text.replace(/\s/g, "").length : text.length;
-}
-
-//Returns the number of words in the text.
-function getWordCount(text) {
-  const words = text.trim().match(/\b\w+\b/g);
-  return words ? words.length : 0;
-}
-
-//Returns the number of sentences in the text.
-function getSentenceCount(text) {
-  const sentences = text.match(/[^.!?]+[.!?]+/g);
-  return sentences ? sentences.length : 0;
-}
-
-/**
- * Calculates frequency of each letter (A-Z) in the text.
- * Non-alphabetic characters are ignored.
- */
-function getLetterFrequencies(text) {
-  const freq = {};
-  const cleaned = text.toUpperCase().replace(/[^A-Z]/g, "");
-  for (let char of cleaned) {
-    freq[char] = (freq[char] || 0) + 1;
-  }
-  return { freq, total: cleaned.length };
-}
-
-
-/**
- * Updates the letter frequency bars in the UI.
- * Shows top 5 by default, or all if toggled.
- */
+// Updates the letter frequency bars in the UI
 function updateLetterDensity(text) {
   const { freq, total } = getLetterFrequencies(text);
   letterDensityContainer.innerHTML = "";
@@ -83,27 +55,17 @@ function updateLetterDensity(text) {
     letterDensityContainer.appendChild(letterBlock);
   });
 
-  // Show or hide the toggle button depending on number of unique letters
   toggleBtn.parentElement.style.display = sorted.length > 5 ? "block" : "none";
-
-  // Set toggle button color based on theme
   toggleBtn.style.color = isLightTheme ? "black" : "white";
 }
 
-
-/**
- * Updates all stats on the UI:
- * - Character, word, sentence count
- * - Reading time
- * - Letter frequency
- * - Character limit warning
- */
+// Updates all stats on the UI
 function updateStats() {
   const text = textInput.value;
   const charCount = getCharCount(text, excludeSpaces.checked);
   const wordCount = getWordCount(text);
   const sentenceCount = getSentenceCount(text);
-  const readingTime = Math.ceil(wordCount / 200);
+  const readingTime = estimateReadingTime(text);
   const charLimit = parseInt(charLimitInput.value);
 
   // Update stats in UI
@@ -123,21 +85,12 @@ function updateStats() {
     charCountEl.style.color = "";
   }
 
-  // Show (no spaces) label if checkbox is checked
-if (excludeSpaces.checked) {
-  spaceIndicator.textContent = "(no spaces)";
-} else {
-  spaceIndicator.textContent = "";
-}
-
+  spaceIndicator.textContent = excludeSpaces.checked ? "(no spaces)" : "";
 
   updateLetterDensity(text);
 }
 
-
-/**
- * Prevent user from exceeding character limit while typing.
- */
+// Event listeners
 textInput.addEventListener("beforeinput", (e) => {
   const exclude = excludeSpaces.checked;
   const charLimit = parseInt(charLimitInput.value);
@@ -147,10 +100,6 @@ textInput.addEventListener("beforeinput", (e) => {
   }
 });
 
-
-/**
- * Show/hide the character limit input field when checkbox is toggled.
- */
 setLimit.addEventListener("change", () => {
   const isChecked = setLimit.checked;
   limitInputGroup.classList.toggle("hidden", !isChecked);
@@ -161,7 +110,6 @@ setLimit.addEventListener("change", () => {
   updateStats();
 });
 
-// Listen for input and trigger updates
 textInput.addEventListener("input", updateStats);
 excludeSpaces.addEventListener("change", updateStats);
 charLimitInput.addEventListener("input", updateStats);
@@ -174,11 +122,6 @@ toggleBtn.addEventListener("click", () => {
   updateStats();
 });
 
-
-/**
- * Theme toggle (light/dark) logic.
- * Switches logo and icon based on theme.
- */
 document.querySelector(".toggle-theme").addEventListener("click", () => {
   isLightTheme = !isLightTheme;
   body.classList.toggle("light", isLightTheme);

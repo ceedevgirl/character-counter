@@ -23,10 +23,15 @@ function getLetterFrequencies(text) {
   return { freq, total: cleaned.length };
 }
 
-// export them so Jest can use them
+function estimateReadingTime(text) {
+  const words = getWordCount(text);
+  return Math.ceil(words / 200);
+}
+
 module.exports = {
   getCharCount,
   getWordCount,
   getSentenceCount,
-  getLetterFrequencies
+  getLetterFrequencies,
+  estimateReadingTime
 };
