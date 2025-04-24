@@ -26,8 +26,13 @@
 
 <main>
           <h1>Analyze your text <br> in real-time.</h1>
-          <textarea id="text-input" placeholder="Start typing here… (or paste your text)..."></textarea>
-          <p id="limit-warning" class="hidden warning-text"></p>
+          <textarea id="text-input"  placeholder="Start typing here… (or paste your text)..."></textarea>
+          
+          <small id="limit-warning" class="hidden warning-text">
+            <span class="warning-icon" aria-hidden="true"><img src="./assets/images/info-circle.svg" alt=""></span>
+            <span class="warning-message"></span>
+          </small>
+          
   <div class="controls">
     <div class="options">
       <label for="exclude-spaces"><input type="checkbox" id="exclude-spaces" name="exclude-spaces"> Exclude Spaces</label>
@@ -67,15 +72,26 @@
           </div>
 
           <!-- Letter density -->
-  <div class="density">
-    <h3>Letter Density</h3>
-    
-   <div class="progress" id="letter-density"></div>
- </div>
- 
-  <div class="see-more">
-   <button id="toggle-density">See more <span class="rotate-left"> &lt;</span></button>
- </div>
+          <div class="density">
+            <h3>Letter Density</h3>
+            
+            <p id="density-message">
+                 No characters found. Start typing to see letter density.
+            </p>
+            
+            <div class="progress" id="letter-density"></div>
+          </div>
+          
+
+ <div class="see-more">
+  <button id="toggle-density">
+    See more
+    <span id="toggle-arrow">
+      <img src="./assets/images/seemore-icon.svg" alt="Arrow icon" />
+    </span>
+  </button>
+</div>
+
        </main>
      </div>
 
