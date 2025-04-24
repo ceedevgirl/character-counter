@@ -59,7 +59,7 @@ function handleLetterDensityDisplay(text) {
 
   letterDensityContainer.style.display = "none";
   densityMessage.style.display = "none";
-  toggleBtn.parentElement.style.display = "none"; // 💡 Hide button initially
+  toggleBtn.parentElement.style.display = "none"; // Hide button initially
 
   typingTimer = setTimeout(() => {
     const trimmed = text.trim();
@@ -67,7 +67,7 @@ function handleLetterDensityDisplay(text) {
     if (trimmed.length === 0) {
       letterDensityContainer.style.display = "none";
       densityMessage.style.display = "block";
-      toggleBtn.parentElement.style.display = "none"; // ✅ Hides "See more"
+      toggleBtn.parentElement.style.display = "none"; // Hides "See more"
     } else {
       densityMessage.style.display = "none";
       letterDensityContainer.style.display = "block";
