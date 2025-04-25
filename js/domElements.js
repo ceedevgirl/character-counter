@@ -1,0 +1,21 @@
+export const domElements = {
+    textInput: document.getElementById("text-input"),
+    excludeSpaces: document.getElementById("exclude-spaces"),
+    setLimit: document.getElementById("set-limit"),
+    warning: document.getElementById("limit-warning"),
+    warningIcon: document.getElementById("warning-icon"),
+    limitInputGroup: document.getElementById("limit-input-group"),
+    charLimitInput: document.getElementById("char-limit-value"),
+    readingTimeDisplay: document.getElementById("reading-time"),
+    charCountEl: document.querySelector(".purple .count"),
+    wordCountEl: document.querySelector(".yellow .count"),
+    sentenceCountEl: document.querySelector(".orange .count"),
+    letterDensityContainer: document.getElementById("letter-density"),
+    densityMessage: document.getElementById("density-message"),
+    toggleBtn: document.getElementById("toggle-density"),
+    toggleArrow: document.getElementById("toggle-arrow"),
+    body: document.body,
+    themeIcon: document.getElementById("theme-icon"),
+    logoImg: document.getElementById("logo-img"),
+    spaceIndicator: document.getElementById("space-indicator")
+  };
